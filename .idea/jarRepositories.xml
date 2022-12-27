@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="all_product_snap_repo" />
+      <option name="name" value="all_product_snap_repo" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/repositories/nc.product.snapshots/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="plugin-repositories" />
+      <option name="name" value="plugin-repositories" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/groups/plugin-repositories" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="gui-snapshot-repositories" />
+      <option name="name" value="gui-snapshot-repositories" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/groups/gui-snapshot-repositories" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="public" />
+      <option name="name" value="public" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/groups/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="nc-all-snapshot-repositories" />
+      <option name="name" value="nc-all-snapshot-repositories" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/groups/nc-all-snapshot-repositories" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="saas-release" />
+      <option name="name" value="saas-release" />
+      <option name="url" value="https://artifactorycn.netcracker.com/pd.saas-release.mvn.group" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="all_repositories" />
+      <option name="name" value="all_repositories" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/repositories" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="nc.general_sync" />
+      <option name="name" value="nc.general_sync" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/repositories/nc.general_sync" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="product-snapshot-repositories" />
+      <option name="name" value="product-snapshot-repositories" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/groups/product-snapshot-repositories" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="product-group-dtrust" />
+      <option name="name" value="product-group-dtrust" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/groups/product-group-dtrust" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="product-repositories" />
+      <option name="name" value="product-repositories" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/groups/product-repositories" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="tools-snapshot-repositories" />
+      <option name="name" value="tools-snapshot-repositories" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/groups/tools-snapshot-repositories" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="tools-repositories-dtrust" />
+      <option name="name" value="tools-repositories-dtrust" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/groups/tools-repositories-dtrust" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="depan-proxy-repositories" />
+      <option name="name" value="depan-proxy-repositories" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/groups/depan-proxy-repositories" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="gui-repositories" />
+      <option name="name" value="gui-repositories" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/groups/gui-repositories" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="product-group" />
+      <option name="name" value="product-group" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/groups/product-group" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="demo.cloud.mvn" />
+      <option name="name" value="demo.cloud.mvn" />
+      <option name="url" value="https://artifactorycn.netcracker.com/demo.cloud.mvn" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="nc.thirdparty" />
+      <option name="name" value="nc.thirdparty" />
+      <option name="url" value="https://nexussrv.netcracker.com/content/repositories/nc.thirdparty" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="saas-snapshots" />
+      <option name="name" value="saas-snapshots" />
+      <option name="url" value="https://artifactorycn.netcracker.com/pd.saas.mvn.group" />
+    </remote-repository>
+  </component>
+</project>
