@@ -305,4 +305,3 @@ VALUES ('14d9bf92-6d3a-4a70-8a16-9faa378769f1', '99f6220e-0aee-4a2b-9cb2-ceda517
 --Smartphone Models: Huawei
 INSERT INTO public.products_characteristics(products_id, characteristics_id)
 VALUES ('55215a7a-fae9-46d4-b278-02bdf7347f57', '6571aa58-8e46-4da2-a8b8-ef00b754073c');
-

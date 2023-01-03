@@ -3,7 +3,7 @@ import './footer.component.css';
 import iconMail from '../../assets/img/icons/icon-mail.png';
 import iconPhone from '../../assets/img/icons/icon-phone.png';
 import logo from '../../assets/img/logo.png';
-import React, {Component} from "react";
+import React, {Component} from 'react';
 
 export default class Footer extends Component {
     render() {

@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './product-item.component.css';
-import {Component} from "react";
+import {Component} from 'react';
 import Rating from '@material-ui/lab/Rating';
-import {Button} from "@material-ui/core";
+import {Button} from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import UserService from "../../services/user.service";
-import {connect} from "react-redux";
-import allActions from "../../actions";
-import {observer} from "mobx-react";
+import UserService from '../../services/user.service';
+import {connect} from 'react-redux';
+import allActions from '../../actions';
+import {observer} from 'mobx-react';
 
 const ProductItem = observer(class ProductItem extends Component {
 

@@ -1,10 +1,7 @@
 package com.yube.services;
 
-import com.yube.model.dto.Characteristic;
 import com.yube.model.dto.CharacteristicGroup;
-import com.yube.model.dto.Offering;
 import com.yube.model.entity.CharacteristicGroupEntity;
-import com.yube.model.entity.OfferingEntity;
 import com.yube.model.mapping.CharacteristicGroupMapper;
 import com.yube.model.mapping.utils.MappingUtils;
 import com.yube.repositories.declaration.CharacteristicGroupRepository;

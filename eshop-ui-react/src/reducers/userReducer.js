@@ -1,4 +1,4 @@
-import {constants} from "../constants";
+import {constants} from '../constants';
 
 const initialState = {
     user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : constants.DEFAULT_USER
@@ -6,7 +6,7 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "SET_USER":
+        case 'SET_USER':
             return {
                 ...state,
                 user: Object.assign({}, action.payload)

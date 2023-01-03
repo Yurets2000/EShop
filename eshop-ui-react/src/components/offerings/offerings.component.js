@@ -1,7 +1,7 @@
 import './offerings.component.css';
-import React, {Component} from "react";
-import ProductBlock from "../product-block/product-block.component";
-import OfferingService from "../../services/offering.service";
+import React, {Component} from 'react';
+import ProductBlock from '../product-block/product-block.component';
+import OfferingService from '../../services/offering.service';
 
 export default class Offerings extends Component {
 
@@ -34,7 +34,7 @@ export default class Offerings extends Component {
         return <div className="offerings-container">
             {
                 this.state.offerings.map(function (offering) {
-                    return <ProductBlock key={offering.id} dataType={'Offering'} data={offering}/>
+                    return <ProductBlock key={offering.id} dataType={'Offering'} data={{offering: offering}}/>
                 })
             }
         </div>

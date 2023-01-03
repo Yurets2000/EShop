@@ -20,14 +20,23 @@ public class ProductController {
         return productService.getAll();
     }
 
+    @GetMapping("/search")
+    public List<Product> search(@RequestParam(value = "offeringId", required = false, defaultValue = "") String offeringId,
+                                @RequestParam(value = "categoryId", required = false, defaultValue = "") String categoryId,
+                                @RequestParam(value = "name", required = false, defaultValue = "") String name,
+                                @RequestParam("page") int page,
+                                @RequestParam("pageSize") int pageSize) {
+        return productService.search(offeringId, categoryId, name, page, pageSize);
+    }
+
     @GetMapping("/{id}")
     public Product getById(@PathVariable("id") String id) {
         return productService.getById(id);
     }
 
-    @PostMapping("/{productCategoryId}")
-    public Product create(@PathVariable("productCategoryId") String productCategoryId, @RequestBody Product product) {
-        return productService.create(productCategoryId, product);
+    @PostMapping("")
+    public Product create(@RequestBody Product product) {
+        return productService.create(product);
     }
 
     @PutMapping("")

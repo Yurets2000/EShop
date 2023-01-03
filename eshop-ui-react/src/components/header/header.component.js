@@ -3,28 +3,52 @@ import './header.component.css';
 import logo from '../../assets/img/logo.png';
 import React, {Component} from "react";
 import ProductCategoriesService from '../../services/product-category.service';
-import {Button} from "@material-ui/core";
+import {Button} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import sort from "../../utils/list-utils";
-import {connect} from "react-redux";
+import {sort} from '../../utils/list-utils';
+import {connect} from 'react-redux';
+import {buildUrl, getParameterByName} from '../../utils/url-utils';
 
 class Header extends Component {
 
     constructor(props) {
         super(props);
+        this.buildCategoriesUrl = this.buildCategoriesUrl.bind(this);
+        this.onSearchbarSubmit = this.onSearchbarSubmit.bind(this);
+        this.onSearchbarInput = this.onSearchbarInput.bind(this);
+        this.onSearchbarKeyPress = this.onSearchbarKeyPress.bind(this);
         this.onCategoriesSwitch = this.onCategoriesSwitch.bind(this);
+        this.retrieveSearchbarText = this.retrieveSearchbarText.bind(this);
         this.retrieveProductCategories = this.retrieveProductCategories.bind(this);
         this.getTotalCount = this.getTotalCount.bind(this);
         this.getTotalPrice = this.getTotalPrice.bind(this);
 
         this.state = {
             isCategoriesOpen: false,
-            productCategories: []
+            productCategories: [],
+            searchbarText: null,
         };
     }
 
     componentDidMount() {
         this.retrieveProductCategories();
+        this.retrieveSearchbarText();
+    }
+
+    onSearchbarInput(e) {
+        this.setState({
+            searchbarText: e.target.value
+        });
+    }
+
+    onSearchbarSubmit() {
+        window.location.href = this.buildCategoriesUrl(null, this.state.searchbarText);
+    }
+
+    onSearchbarKeyPress(e) {
+        if (e.key === 'Enter') {
+            this.onSearchbarSubmit();
+        }
     }
 
     onCategoriesSwitch(e) {
@@ -45,6 +69,19 @@ class Header extends Component {
             .reduce((a, b) => a + b);
     }
 
+    buildCategoriesUrl(categoryId, text) {
+        const queryParameters = new Map();
+        queryParameters.set('text', text);
+        queryParameters.set('category', categoryId);
+        return buildUrl('./categories', queryParameters);
+    }
+
+    retrieveSearchbarText() {
+        this.setState({
+           searchbarText: getParameterByName('text')
+        });
+    }
+
     retrieveProductCategories() {
         ProductCategoriesService.getAll()
             .then(response => {
@@ -58,6 +95,11 @@ class Header extends Component {
     }
 
     render() {
+        const searchbarText = this.state.searchbarText;
+        const buildCategoriesUrl = (categoryId) => {
+            return this.buildCategoriesUrl(categoryId);
+        }
+
         return <header>
             <div className="header-container">
                 <div className="header-body">
@@ -70,8 +112,8 @@ class Header extends Component {
                         <div className="market-nav">
                             <div className="searchbar-container">
                                 <div className="searchbar">
-                                    <input type="text" className="searchbar-text" placeholder="Search"/>
-                                    <button type="submit" className="searchbar-button">
+                                    <input value={searchbarText} minLength={3} onChange={e => this.onSearchbarInput(e)} onKeyDown={e => this.onSearchbarKeyPress(e)} type="text" className="searchbar-text" placeholder="Search"/>
+                                    <button onClick={this.onSearchbarSubmit} type="submit" className="searchbar-button">
                                         <i className="fa fa-search"/>
                                     </button>
                                 </div>
@@ -124,7 +166,7 @@ class Header extends Component {
                             {
                                 sort(this.state.productCategories, 'name').map(function (productCategory) {
                                     return <li key={'header_' + productCategory.id}>
-                                        <a href={'./categories?selected=' + productCategory.id}>{productCategory.name}</a>
+                                        <a href={buildCategoriesUrl(productCategory.id, searchbarText)}>{productCategory.name}</a>
                                     </li>
                                 })
                             }

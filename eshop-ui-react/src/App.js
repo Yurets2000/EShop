@@ -1,15 +1,15 @@
 import './App.css';
-import React, {Component} from "react";
-import {constants} from "./constants";
-import {v4 as uuid_v4} from "uuid";
-import UserService from "./services/user.service";
-import Header from "./components/header/header.component";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Offerings from "./components/offerings/offerings.component";
-import Categories from "./components/categories/categories.component";
-import Footer from "./components/footer/footer.component";
-import {connect} from "react-redux";
-import allActions from "./actions/index";
+import React, {Component} from 'react';
+import {constants} from './constants';
+import {v4 as uuid_v4} from 'uuid';
+import UserService from './services/user.service';
+import Header from './components/header/header.component';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Offerings from './components/offerings/offerings.component';
+import Categories from './components/categories/categories.component';
+import Footer from './components/footer/footer.component';
+import {connect} from 'react-redux';
+import allActions from './actions/index';
 
 class App extends Component {
 
@@ -62,10 +62,10 @@ class App extends Component {
 
     render() {
         return <div className="body-wrapper">
-            <Header/>
-            <main>
-                <div className="content-container">
-                    <Router>
+            <Router>
+                <Header/>
+                <main>
+                    <div className="content-container">
                         <Switch>
                             <Route exact path="/">
                                 <Offerings/>
@@ -74,10 +74,10 @@ class App extends Component {
                                 <Categories/>
                             </Route>
                         </Switch>
-                    </Router>
-                </div>
-            </main>
-            <Footer/>
+                    </div>
+                </main>
+                <Footer/>
+            </Router>
         </div>
     }
 }

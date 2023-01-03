@@ -13,6 +13,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Product extends ObjectBase {
     private String categoryId;
+    private List<String> offeringIds;
     private String imageUrl;
     private Double price;
     private Integer ratingSum;

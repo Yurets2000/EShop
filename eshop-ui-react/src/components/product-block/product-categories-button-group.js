@@ -1,9 +1,9 @@
 import './product-block.component.css';
-import React from "react";
+import React from 'react';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
-import sort from "../../utils/list-utils";
-import {observer} from "mobx-react-lite";
+import {sort} from '../../utils/list-utils';
+import {observer} from 'mobx-react-lite';
 
 const ProductCategoriesButtonGroup = observer((props) => {
     const [categories, setCategories] = React.useState(() => []);

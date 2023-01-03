@@ -1,4 +1,4 @@
-import userActions from "./userActions";
+import userActions from './userActions';
 
 const allActions = {
     userActions

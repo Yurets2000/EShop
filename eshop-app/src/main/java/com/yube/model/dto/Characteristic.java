@@ -10,5 +10,6 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Characteristic extends Base {
+    private String groupId;
     private String value;
 }

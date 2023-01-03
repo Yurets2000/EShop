@@ -1,11 +1,8 @@
 package com.yube.services;
 
 import com.yube.model.dto.Characteristic;
-import com.yube.model.dto.ProductComment;
 import com.yube.model.entity.CharacteristicEntity;
 import com.yube.model.entity.CharacteristicGroupEntity;
-import com.yube.model.entity.ProductCommentEntity;
-import com.yube.model.entity.ProductEntity;
 import com.yube.model.mapping.CharacteristicMapper;
 import com.yube.model.mapping.utils.MappingUtils;
 import com.yube.repositories.declaration.CharacteristicGroupRepository;

@@ -1,5 +1,5 @@
-import http from "../http-common";
-import {apiUrls} from "../api-urls";
+import http from '../http-common';
+import {apiUrls} from '../api-urls';
 
 class ProductCommentService {
 

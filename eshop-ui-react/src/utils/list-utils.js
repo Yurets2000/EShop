@@ -1,4 +1,4 @@
-export default function sort(array, field) {
+export function sort(array, field) {
     if (!Array.isArray(array)) {
         return array;
     }
@@ -12,4 +12,14 @@ export default function sort(array, field) {
         }
     });
     return array;
+}
+
+export function containsAll(arr, filteringArr) {
+    if (filteringArr.length === 0) return true;
+    return filteringArr.every(v => arr.includes(v));
+}
+
+export function containsAny(arr, filteringArr) {
+    if (filteringArr.length === 0) return true;
+    return filteringArr.some(v => arr.includes(v));
 }

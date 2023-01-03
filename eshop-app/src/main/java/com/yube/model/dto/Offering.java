@@ -8,9 +8,8 @@ import lombok.ToString;
 import java.util.List;
 
 @Data
-@ToString(exclude = {"products"}, callSuper = true)
-@EqualsAndHashCode(exclude = {"products"}, callSuper = true)
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Offering extends ObjectBase {
-    private List<Product> products;
 }
