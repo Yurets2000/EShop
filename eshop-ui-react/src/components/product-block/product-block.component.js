@@ -85,7 +85,6 @@ export default class ProductBlock extends Component {
     }
 
     filterProducts(products, characteristicsMap) {
-        console.log(`filterProducts, products: ${JSON.stringify(products)}, characteristicsMap: ${JSON.stringify(Object.fromEntries(characteristicsMap))}`);
         let result = products;
         if (!!characteristicsMap && characteristicsMap.size > 0) {
             result = products.filter(product => {
@@ -101,7 +100,6 @@ export default class ProductBlock extends Component {
                 return containsAllKeysAnyValues(productCharacteristicsMap, characteristicsMap);
             });
         }
-        console.log(`filterProducts, result: ${JSON.stringify(result)}`);
         return result;
     }
 

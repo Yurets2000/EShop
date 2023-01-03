@@ -1,0 +1,8 @@
+.main-header {
+    width: 100%;
+    font-size: 3.5em;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    text-shadow: 2px 2px darkgrey;
+}

@@ -1,4 +1,5 @@
 import './offerings.component.css';
+import '../../assets/css/main.css';
 import React, {Component} from 'react';
 import ProductBlock from '../product-block/product-block.component';
 import OfferingService from '../../services/offering.service';
@@ -31,12 +32,15 @@ export default class Offerings extends Component {
     }
 
     render() {
-        return <div className="offerings-container">
-            {
-                this.state.offerings.map(function (offering) {
-                    return <ProductBlock key={offering.id} dataType={'Offering'} data={{offering: offering}}/>
-                })
-            }
+        return <div>
+            <h1 className="main-header">Offerings</h1>
+            <div className="offerings-container">
+                {
+                    this.state.offerings.map(function (offering) {
+                        return <ProductBlock key={offering.id} dataType={'Offering'} data={{offering: offering}}/>
+                    })
+                }
+            </div>
         </div>
     }
 }

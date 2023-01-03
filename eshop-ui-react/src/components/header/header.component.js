@@ -13,7 +13,7 @@ class Header extends Component {
 
     constructor(props) {
         super(props);
-        this.buildCategoriesUrl = this.buildCategoriesUrl.bind(this);
+        this.buildSearchUrl = this.buildSearchUrl.bind(this);
         this.onSearchbarSubmit = this.onSearchbarSubmit.bind(this);
         this.onSearchbarInput = this.onSearchbarInput.bind(this);
         this.onSearchbarKeyPress = this.onSearchbarKeyPress.bind(this);
@@ -42,7 +42,7 @@ class Header extends Component {
     }
 
     onSearchbarSubmit() {
-        window.location.href = this.buildCategoriesUrl(null, this.state.searchbarText);
+        window.location.href = this.buildSearchUrl(null, this.state.searchbarText);
     }
 
     onSearchbarKeyPress(e) {
@@ -69,11 +69,11 @@ class Header extends Component {
             .reduce((a, b) => a + b);
     }
 
-    buildCategoriesUrl(categoryId, text) {
+    buildSearchUrl(categoryId, text) {
         const queryParameters = new Map();
         queryParameters.set('text', text);
         queryParameters.set('category', categoryId);
-        return buildUrl('./categories', queryParameters);
+        return buildUrl('./search', queryParameters);
     }
 
     retrieveSearchbarText() {
@@ -96,8 +96,8 @@ class Header extends Component {
 
     render() {
         const searchbarText = this.state.searchbarText;
-        const buildCategoriesUrl = (categoryId) => {
-            return this.buildCategoriesUrl(categoryId);
+        const buildSearchUrl = (categoryId) => {
+            return this.buildSearchUrl(categoryId);
         }
 
         return <header>
@@ -123,10 +123,10 @@ class Header extends Component {
                                     <a href="#">My Account</a>
                                 </li>
                                 <li>
-                                    <a href="#">Wish List</a>
+                                    <a href={'./wish-list'}>Wish List</a>
                                 </li>
                                 <li>
-                                    <a href="#">Shopping Cart</a>
+                                    <a href={'./shopping-cart'}>Shopping Cart</a>
                                 </li>
                                 <li>
                                     <a href="#">Checkout</a>
@@ -166,7 +166,7 @@ class Header extends Component {
                             {
                                 sort(this.state.productCategories, 'name').map(function (productCategory) {
                                     return <li key={'header_' + productCategory.id}>
-                                        <a href={buildCategoriesUrl(productCategory.id, searchbarText)}>{productCategory.name}</a>
+                                        <a href={buildSearchUrl(productCategory.id, searchbarText)}>{productCategory.name}</a>
                                     </li>
                                 })
                             }

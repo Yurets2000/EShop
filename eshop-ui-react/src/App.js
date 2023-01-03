@@ -6,10 +6,12 @@ import UserService from './services/user.service';
 import Header from './components/header/header.component';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Offerings from './components/offerings/offerings.component';
-import Categories from './components/categories/categories.component';
+import Search from './components/search/search.component';
 import Footer from './components/footer/footer.component';
 import {connect} from 'react-redux';
 import allActions from './actions/index';
+import ShoppingCart from './components/shopping-cart/shopping-cart.component';
+import WishList from './components/wish-list/wish-list.component';
 
 class App extends Component {
 
@@ -70,8 +72,14 @@ class App extends Component {
                             <Route exact path="/">
                                 <Offerings/>
                             </Route>
-                            <Route path="/categories">
-                                <Categories/>
+                            <Route path="/search">
+                                <Search/>
+                            </Route>
+                            <Route path="/shopping-cart">
+                                <ShoppingCart/>
+                            </Route>
+                            <Route path="/wish-list">
+                                <WishList/>
                             </Route>
                         </Switch>
                     </div>

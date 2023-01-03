@@ -1,15 +1,16 @@
-import './categories.component.css';
+import './search.component.css';
+import '../../assets/css/main.css';
 import {Component} from 'react';
 import ProductCategoriesService from '../../services/product-category.service';
 import ProductBlock from '../product-block/product-block.component';
 import {buildUrl, getParameterByName} from '../../utils/url-utils';
 import {sort} from '../../utils/list-utils';
 
-export default class Categories extends Component {
+export default class Search extends Component {
 
     constructor(props) {
         super(props);
-        this.buildCategoriesUrl = this.buildCategoriesUrl.bind(this);
+        this.buildSearchUrl = this.buildSearchUrl.bind(this);
         this.retrieveText = this.retrieveText.bind(this);
         this.retrieveProductCategories = this.retrieveProductCategories.bind(this);
         this.retrieveSelectedProductCategory = this.retrieveSelectedProductCategory.bind(this);
@@ -114,11 +115,11 @@ export default class Categories extends Component {
         })
     }
 
-    buildCategoriesUrl(categoryId) {
+    buildSearchUrl(categoryId) {
         const queryParameters = new Map();
         queryParameters.set('text', getParameterByName('text'));
         queryParameters.set('category', categoryId);
-        return buildUrl('./categories', queryParameters);
+        return buildUrl('./search', queryParameters);
     }
 
     render() {
@@ -130,62 +131,65 @@ export default class Categories extends Component {
         const onCharacteristicCheckboxClick = (e, characteristicGroupId, characteristicId) => {
             this.onCharacteristicCheckboxClick(e, characteristicGroupId, characteristicId);
         }
-        const buildCategoriesUrl = (categoryId) => {
-            return this.buildCategoriesUrl(categoryId);
+        const buildSearchUrl = (categoryId) => {
+            return this.buildSearchUrl(categoryId);
         }
 
-        return <div className="categories">
-            {productCategories &&
-            <div className="filtering-block">
-                <div className="categories-block">
-                    <h3 className="categories-head">Categories</h3>
-                    <ul className="product-categories">
-                        {
-                            sort(productCategories, 'name').map(function (productCategory) {
-                                return <li
-                                    key={'categories_' + productCategory.id}
-                                    className={`${!!selectedProductCategory && productCategory.id === selectedProductCategory.id ? 'selected-item' : ''}`}>
-                                    <a href={buildCategoriesUrl(productCategory.id)}>{productCategory.name}</a>
-                                </li>
-                            })
-                        }
-                    </ul>
-                </div>
-                {selectedProductCategory &&
-                    <div className="filters-block">
-                        <h3 className="filters-head">Filters</h3>
-                        <ul className="filters-categories">
+        return <div>
+            <h1 className="main-header">Search</h1>
+            <div className="search">
+                {productCategories &&
+                <div className="filtering-block">
+                    <div className="categories-block">
+                        <h3 className="categories-head">Categories</h3>
+                        <ul className="product-categories">
                             {
-                                sort(selectedProductCategory.characteristicGroups, 'name').map(function (characteristicGroup) {
-                                    return <div key={'characteristic_group_' + characteristicGroup.id}
-                                                className="filter-category">
-                                        <h4 className="filter-category-head">{characteristicGroup.name}</h4>
-                                        <ul className="filter-subcategories">
-                                            {
-                                                sort(characteristicGroup.characteristics, 'name').map(function (characteristic) {
-                                                    return <li key={'characteristic_' + characteristic.id}>
-                                                        <input type="checkbox" id={characteristic.id}
-                                                               name={characteristicGroup.name} value={characteristic.id}
-                                                               checked={!!selectedCharacteristicsMap.get(characteristicGroup.id) &&
-                                                               selectedCharacteristicsMap.get(characteristicGroup.id).indexOf(characteristic.id) !== -1}
-                                                               onChange={e => onCharacteristicCheckboxClick(e, characteristicGroup.id, characteristic.id)}/>
-                                                        <label
-                                                            htmlFor={characteristic.id}>{characteristic.value}</label>
-                                                    </li>
-                                                })
-                                            }
-                                        </ul>
-                                    </div>
+                                sort(productCategories, 'name').map(function (productCategory) {
+                                    return <li
+                                        key={'categories_' + productCategory.id}
+                                        className={`${!!selectedProductCategory && productCategory.id === selectedProductCategory.id ? 'selected-item' : ''}`}>
+                                        <a href={buildSearchUrl(productCategory.id)}>{productCategory.name}</a>
+                                    </li>
                                 })
                             }
                         </ul>
                     </div>
+                    {selectedProductCategory &&
+                        <div className="filters-block">
+                            <h3 className="filters-head">Filters</h3>
+                            <ul className="filters-categories">
+                                {
+                                    sort(selectedProductCategory.characteristicGroups, 'name').map(function (characteristicGroup) {
+                                        return <div key={'characteristic_group_' + characteristicGroup.id}
+                                                    className="filter-category">
+                                            <h4 className="filter-category-head">{characteristicGroup.name}</h4>
+                                            <ul className="filter-subcategories">
+                                                {
+                                                    sort(characteristicGroup.characteristics, 'name').map(function (characteristic) {
+                                                        return <li key={'characteristic_' + characteristic.id}>
+                                                            <input type="checkbox" id={characteristic.id}
+                                                                   name={characteristicGroup.name} value={characteristic.id}
+                                                                   checked={!!selectedCharacteristicsMap.get(characteristicGroup.id) &&
+                                                                   selectedCharacteristicsMap.get(characteristicGroup.id).indexOf(characteristic.id) !== -1}
+                                                                   onChange={e => onCharacteristicCheckboxClick(e, characteristicGroup.id, characteristic.id)}/>
+                                                            <label
+                                                                htmlFor={characteristic.id}>{characteristic.value}</label>
+                                                        </li>
+                                                    })
+                                                }
+                                            </ul>
+                                        </div>
+                                    })
+                                }
+                            </ul>
+                        </div>
+                    }
+                </div>
+                }
+                {productCategories && (!!selectedProductCategory || !!text) &&
+                <ProductBlock data={{filteringParams: filteringParams}} dataType={'ProductCategory'}/>
                 }
             </div>
-            }
-            {productCategories && (!!selectedProductCategory || !!text) &&
-            <ProductBlock data={{filteringParams: filteringParams}} dataType={'ProductCategory'}/>
-            }
         </div>
     }
 }

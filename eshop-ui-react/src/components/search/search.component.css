@@ -1,4 +1,4 @@
-.categories {
+.search {
     display: flex;
     flex-direction: row;
 }
@@ -41,14 +41,14 @@
     background-color: #acacac;
 }
 
-.categories a {
+.search a {
     display: block;
 }
 
-.categories a,
-.categories a:hover,
-.categories a:visited,
-.categories a:active {
+.search a,
+.search a:hover,
+.search a:visited,
+.search a:active {
     color: initial;
 }
 
@@ -78,7 +78,7 @@
 }
 
 @media (max-width: 767px) {
-    .categories {
+    .search {
         flex-direction: column;
     }
 
