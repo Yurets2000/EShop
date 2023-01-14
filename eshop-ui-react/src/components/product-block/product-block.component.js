@@ -65,6 +65,8 @@ export default class ProductBlock extends Component {
     searchProducts(offeringId, categoryId, name, characteristicsMap) {
         ProductService.search(offeringId, categoryId, name, 0, 20)
             .then(response => {
+                    console.log(`searchProducts, offeringId: ${offeringId}, categoryId: ${categoryId}, name: ${name}, 
+                    characteristicMap: ${JSON.stringify(Object.fromEntries(characteristicsMap))}, response: ${JSON.stringify(response)}`);
                     this.setState({
                         products: this.filterProducts(response.data, characteristicsMap)
                     });

@@ -18,6 +18,7 @@ class ProductService {
         queryParameters.set('page', page);
         queryParameters.set('pageSize', pageSize);
         const url = buildUrl(`${this.basicUrl}/search`, queryParameters);
+        console.log(`url: ${url}`);
         return http.get(url);
     }
 

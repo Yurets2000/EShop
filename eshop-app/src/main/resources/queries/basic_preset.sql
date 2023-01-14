@@ -283,6 +283,8 @@ INSERT INTO public.products_characteristics(products_id, characteristics_id)
 VALUES ('4f86fcc0-0d9d-411e-8627-471674df6f62', 'e9102a56-2374-4514-9426-b4019528b576');
 INSERT INTO public.products_characteristics(products_id, characteristics_id)
 VALUES ('d3331187-51a6-4007-8939-216f9a4dd9a5', 'e9102a56-2374-4514-9426-b4019528b576');
+INSERT INTO public.products_characteristics(products_id, characteristics_id)
+VALUES ('14d9bf92-6d3a-4a70-8a16-9faa378769f1', 'e9102a56-2374-4514-9426-b4019528b576');
 --Color: Silver
 INSERT INTO public.products_characteristics(products_id, characteristics_id)
 VALUES ('eca5af9a-da54-46d4-8691-1559ba642010', 'b5c00cba-e931-4967-ad52-10b5b79c8fc5');

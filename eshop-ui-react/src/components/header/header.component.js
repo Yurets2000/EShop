@@ -42,7 +42,9 @@ class Header extends Component {
     }
 
     onSearchbarSubmit() {
-        window.location.href = this.buildSearchUrl(null, this.state.searchbarText);
+        if (this.state.searchbarText.length === 0 || this.state.searchbarText.length >= 3) {
+            window.location.href = this.buildSearchUrl(null, this.state.searchbarText);
+        }
     }
 
     onSearchbarKeyPress(e) {
